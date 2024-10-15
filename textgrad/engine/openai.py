@@ -39,7 +39,8 @@ class ChatOpenAI(EngineLM, CachedEngine):
         base_url: str = None,
         tool_choice: dict = NOT_GIVEN,
         tools: list = NOT_GIVEN,
-        tool_instructions: str = None**kwargs,
+        tool_instructions: str = None,
+        **kwargs,
     ):
         """
         :param model_string:
