@@ -179,8 +179,6 @@ class ChatOpenAI(EngineLM, CachedEngine):
             {"role": "system", "content": sys_prompt_arg},
             {"role": "user", "content": formatted_content},
         ]
-        if self.tool_choice != NOT_GIVEN:  # append the instruction message
-            messages.append({"type": "text", "text": self.tool_instructions})
 
         response = self.client.chat.completions.create(
             model=self.model_string,
