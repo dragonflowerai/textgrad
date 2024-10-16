@@ -163,7 +163,7 @@ class ChatAnthropic(EngineLM, CachedEngine):
         if self.tool_choice == NOT_GIVEN:
             response_text = response.content[0].text
         else:
-            response_text = "" + str(response.content[0].input)
+            response_text = str(response.content[0].input)
 
         self._save_cache(cache_key, response_text)
         return response_text

@@ -192,7 +192,10 @@ class ChatOpenAI(EngineLM, CachedEngine):
             tools=self.tools,
         )
 
-        response_text = response.choices[0].message.content
+        if self.tool_choice == NOT_GIVEN:
+            response_text = response.choices[0].message.content
+        else:
+            response_text = str(response.content[0].tool_calls[0].function.arguments)
         self._save_cache(cache_key, response_text)
         return response_text
 
