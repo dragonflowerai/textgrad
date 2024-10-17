@@ -1,3 +1,8 @@
-from .optimizer import TextualGradientDescent, Optimizer, TextualGradientDescentwithMomentum
+from .optimizer import (
+    TextualGradientDescent,
+    Optimizer,
+    TextualGradientDescentwithMomentum,
+)
 
 TGD = TextualGradientDescent
+TGDM = TextualGradientDescentwithMomentum
