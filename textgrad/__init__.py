@@ -2,11 +2,14 @@ import os
 import logging
 import json
 from datetime import datetime
+
+
 class CustomJsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         super(CustomJsonFormatter, self).format(record)
         output = {k: str(v) for k, v in record.__dict__.items()}
         return json.dumps(output, indent=4)
+
 
 cf = CustomJsonFormatter()
 os.makedirs("./logs/", exist_ok=True)
@@ -21,7 +24,8 @@ from .variable import Variable
 from .loss import TextLoss
 from .model import BlackboxLLM
 from .engine import EngineLM, get_engine
-from .optimizer import TextualGradientDescent, TGD
+from .optimizer import TextualGradientDescent, TGD, TGDM
+from .optimizer.guidance_optimizer import GuidedTextualGradientDescent
 from .config import set_backward_engine, SingletonBackwardEngine
 from .autograd import sum, aggregate
 
