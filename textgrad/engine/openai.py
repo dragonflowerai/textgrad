@@ -165,7 +165,7 @@ class ChatOpenAI(EngineLM, CachedEngine):
         system_prompt=None,
         temperature=0,
         max_tokens=2000,
-        top_p=0.99,
+        top_p=1,
     ):
         sys_prompt_arg = system_prompt if system_prompt else self.system_prompt
         formatted_content = self._format_content(content)
@@ -186,6 +186,9 @@ class ChatOpenAI(EngineLM, CachedEngine):
             temperature=temperature,
             max_tokens=max_tokens,
             top_p=top_p,
+            n=1,
+            presence_penalty=0,
+            frequency_penalty=0,
             tool_choice=self.tool_choice,
             tools=self.tools,
         )
