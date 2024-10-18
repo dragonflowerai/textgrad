@@ -137,7 +137,7 @@ class ChatAnthropic(EngineLM, CachedEngine):
         system_prompt=None,
         temperature=0,
         max_tokens=2000,
-        top_p=0.99,
+        top_p=1,
     ):
         sys_prompt_arg = system_prompt if system_prompt else self.system_prompt
         formatted_content = self._format_content(content)
